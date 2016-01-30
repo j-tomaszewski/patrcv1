@@ -1,0 +1,70 @@
+#include<iostream>
+#include<vector>
+
+
+using namespace std;
+
+
+class Vehicle
+{
+public:
+	virtual void display() = 0;
+	virtual ~Vehicle() {};
+};
+
+
+class Truck : public Vehicle
+{
+private:
+	int length, weight;
+
+public:
+	Truck(int length, int weight) : length(length), weight(weight) {};
+	void display();
+};
+
+void Truck::display()
+{
+	cout << "This is Truck" << endl;
+}
+
+
+class Car : public Vehicle
+{
+private:
+	int length, weight;
+
+public:
+	Car(int length, int weight) : length(length), weight(weight) {};
+	void display();
+};
+
+void Car::display()
+{
+	cout << "This is Car" << endl;
+}
+
+
+
+int main()
+{
+
+	Vehicle *V1 = new Truck(100, 200);
+	Vehicle *V2 = new Car(10, 5);
+
+	V1->display();
+	V2->display();
+
+	vector<Vehicle*> vec{V1, V2};
+
+	for (auto i : vec)
+		i->display();
+
+
+	for (auto i : vec)
+		delete i;
+	
+
+	getchar();
+	return 0;
+}
