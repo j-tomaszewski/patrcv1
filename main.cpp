@@ -45,7 +45,6 @@ void Car::display()
 }
 
 
-
 int main()
 {
 
@@ -55,15 +54,52 @@ int main()
 	V1->display();
 	V2->display();
 
-	vector<Vehicle*> vec{V1, V2};
+	vector<Vehicle*> vec{ V1, V2 };
 
+	
 	for (auto i : vec)
 		i->display();
 
 
-	for (auto i : vec)
-		delete i;
+	int repeat = 10;
+		
+	do
+	{
+		V1->display();
+	} while (--repeat);
 	
+	repeat = 10;
+
+	while (repeat--)
+	{
+		V2->display();
+	}
+
+
+
+	int tab[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int *tabl = new int[5];
+
+		
+	int *ptr = tab;
+	cout << *ptr << endl;
+	cout << *(ptr + 3) << endl;
+	
+	ptr += 4;
+	cout << *(ptr - 2) << endl;
+
+
+	double d = 5.6547;
+	int i = static_cast<int>(d);
+	cout << i << endl;
+
+		
+
+	for (auto j : vec)
+		delete j;	
+
+	delete tabl;
+
 
 	getchar();
 	return 0;
